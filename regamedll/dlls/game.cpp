@@ -190,6 +190,7 @@ cvar_t ammo_respawn_time       = { "mp_ammo_respawn_time", "20", FCVAR_SERVER, 2
 cvar_t vote_flags              = { "mp_vote_flags", "km", 0, 0.0f, nullptr };
 cvar_t votemap_min_time        = { "mp_votemap_min_time", "180", 0, 180.0f, nullptr };
 
+cvar_t logkills                = { "mp_logkills", "1", FCVAR_SERVER, 0.0f, nullptr };
 cvar_t randomspawn             = { "mp_randomspawn", "0", FCVAR_SERVER, 0.0f, nullptr };
 
 void GameDLL_Version_f()
@@ -469,6 +470,7 @@ void EXT_FUNC GameDLLInit()
 
 	CVAR_REGISTER(&cv_bot_enable);
 	CVAR_REGISTER(&cv_hostage_ai_enable);
+	CVAR_REGISTER(&logkills);
 
 	// print version
 	CONSOLE_ECHO("ReGameDLL version: " APP_VERSION "\n");
