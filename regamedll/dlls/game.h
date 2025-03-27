@@ -210,6 +210,7 @@ extern cvar_t weapon_respawn_time;
 extern cvar_t ammo_respawn_time;
 extern cvar_t vote_flags;
 extern cvar_t votemap_min_time;
+extern cvar_t stamina_restore_rate;
 extern cvar_t logkills;
 extern cvar_t randomspawn;
 extern cvar_t playerid_showhealth;
