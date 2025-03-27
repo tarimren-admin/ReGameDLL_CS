@@ -124,6 +124,7 @@ This means that plugins that do binary code analysis (Orpheu for example) probab
 | mp_ammo_respawn_time               | 20      | 0.0 | -            | The respawn time for ammunition. |
 | mp_vote_flags                      | km      | 0   | -            | Vote systems enabled in server.<br/>`0` voting disabled<br/>`k` votekick enabled via `vote` command<br/>`m` votemap enabled via `votemap` command |
 | mp_votemap_min_time                | 180     | 0.0 | -            | Minimum seconds that must elapse on map before `votemap` command can be used. |
+| mp_flymove_method                  | 0       | 0   | 1            | Set the method used for flymove calculations.<br/> `0` default method<br/>`1` alternative method (more accurate) |
 | mp_stamina_restore_rate            | 0       | 0.0 | -            | Framerate (FPS), that used as reference when restoring stamina (fuser2) after jump. |
 | mp_logkills                        | 1       | 0   | 1            | Log kills.<br/>`0` disabled <br/>`1` enabled |
 | mp_jump_height                     | 45      | 0.0 | -            | Player jump height. |

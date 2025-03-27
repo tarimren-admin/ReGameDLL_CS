@@ -190,6 +190,7 @@ cvar_t ammo_respawn_time       = { "mp_ammo_respawn_time", "20", FCVAR_SERVER, 2
 cvar_t vote_flags              = { "mp_vote_flags", "km", 0, 0.0f, nullptr };
 cvar_t votemap_min_time        = { "mp_votemap_min_time", "180", 0, 180.0f, nullptr };
 
+cvar_t flymove_method          = { "mp_flymove_method", "0", 0, 0.0f, nullptr };
 cvar_t stamina_restore_rate    = { "mp_stamina_restore_rate", "0", 0, 0.f, nullptr };
 
 cvar_t logkills                = { "mp_logkills", "1", FCVAR_SERVER, 0.0f, nullptr };
@@ -481,6 +482,8 @@ void EXT_FUNC GameDLLInit()
 	CVAR_REGISTER(&playerid_field);
 
 	CVAR_REGISTER(&stamina_restore_rate);
+
+	CVAR_REGISTER(&flymove_method);
 
 	// print version
 	CONSOLE_ECHO("ReGameDLL version: " APP_VERSION "\n");
