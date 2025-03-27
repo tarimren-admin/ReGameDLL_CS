@@ -128,6 +128,8 @@ This means that plugins that do binary code analysis (Orpheu for example) probab
 | mp_jump_height                     | 45      | 0.0 | -            | Player jump height. |
 | bot_excellent_morale               | 0       | 0   | 1            | Bots always have great morale regardless of defeat or victory. |
 | mp_randomspawn                     | 0       | 0   | 1            | Random player spawns<br/>`0` disabled <br/>`1` enabled<br/>`NOTE`: Navigation `maps/.nav` file required |
+| mp_playerid_showhealth             | 1       | 0   | 2            | Player ID display mode.<br/>`0` don't show health<br/>`1` show health for teammates only (default CS behaviour)<br/>`2` show health for all players |
+| mp_playerid_field                  | 3       | 0   | 3            | Player ID field display mode.<br/>`0` don't show additional information<br/>`1` show team name<br/>`2` show health percentage<br/>`3` show both team name and health percentage |
 
 </details>
 
