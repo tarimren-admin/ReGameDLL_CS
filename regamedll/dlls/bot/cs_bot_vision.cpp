@@ -1003,7 +1003,7 @@ CBasePlayer *CCSBot::FindMostDangerousThreat()
 			return currentThreat;
 		}
 
-		// if we are a sniper and we see a sniper threat, attack it unless 
+		// if we are a sniper and we see a sniper threat, attack it unless
 		// there are other close enemies facing me
 		if (IsSniper() && sniperThreat)
 		{

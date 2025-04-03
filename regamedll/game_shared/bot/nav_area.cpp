@@ -72,17 +72,29 @@ NOXREF void buildGoodSizedList()
 
 void DestroyHidingSpots()
 {
-	// remove all hiding spot references from the nav areas
-	for (auto area : TheNavAreaList)
-		area->m_hidingSpotList.clear();
-
-	HidingSpot::m_nextID = 0;
-
 	// free all the HidingSpots
-	for (auto spot : TheHidingSpotList)
+	for (HidingSpot *spot : TheHidingSpotList)
+	{
+		TheCSBots()->OnDestroyNavDataNotify(NAV_NOTIFY_DESTROY_SPOT, spot);
 		delete spot;
+	}
 
 	TheHidingSpotList.clear();
+
+	// remove all hiding spot references from the nav areas
+	for (CNavArea *area : TheNavAreaList)
+	{
+		area->m_hidingSpotList.clear();
+
+		// free all the HidingSpots in area
+		for (SpotEncounter &e : area->m_spotEncounterList)
+			e.spotList.clear();
+
+		TheCSBots()->OnDestroyNavDataNotify(NAV_NOTIFY_DESTROY_SPOT_ENCOUNTER, area);
+		area->m_spotEncounterList.clear();
+	}
+
+	HidingSpot::m_nextID = 0;
 }
 
 // For use when loading from a file
@@ -249,6 +261,9 @@ CNavArea::CNavArea(CNavNode *nwNode, class CNavNode *neNode, class CNavNode *seN
 // Destructor
 CNavArea::~CNavArea()
 {
+	// tell all bots that this area no longer exists
+	TheCSBots()->OnDestroyNavDataNotify(NAV_NOTIFY_DESTROY_AREA, this);
+
 	// if we are resetting the system, don't bother cleaning up - all areas are being destroyed
 	if (m_isReset)
 		return;
@@ -344,6 +359,7 @@ void CNavArea::FinishMerge(CNavArea *adjArea)
 
 	// remove subsumed adjacent area
 	TheNavAreaList.remove(adjArea);
+	TheCSBots()->OnDestroyNavDataNotify(NAV_NOTIFY_DESTROY_AREA, this);
 	delete adjArea;
 }
 
@@ -536,6 +552,7 @@ bool CNavArea::SplitEdit(bool splitAlongX, float splitEdge, CNavArea **outAlpha,
 
 	// remove original area
 	TheNavAreaList.remove(this);
+	TheCSBots()->OnDestroyNavDataNotify(NAV_NOTIFY_DESTROY_AREA, this);
 	delete this;
 
 	return true;
@@ -868,6 +885,7 @@ bool CNavArea::MergeEdit(CNavArea *adj)
 
 	// remove subsumed adjacent area
 	TheNavAreaList.remove(adj);
+	TheCSBots()->OnDestroyNavDataNotify(NAV_NOTIFY_DESTROY_AREA, adj);
 	delete adj;
 
 	return true;
@@ -900,6 +918,9 @@ void DestroyNavigationMap()
 {
 	CNavArea::m_isReset = true;
 
+	// destroy all hiding spots
+	DestroyHidingSpots();
+
 	// remove each element of the list and delete them
 	while (!TheNavAreaList.empty())
 	{
@@ -913,8 +934,8 @@ void DestroyNavigationMap()
 	// destroy ladder representations
 	DestroyLadders();
 
-	// destroy all hiding spots
-	DestroyHidingSpots();
+	// cleanup from previous analysis
+	CleanupApproachAreaAnalysisPrep();
 
 	// destroy navigation nodes created during map learning
 	CNavNode *node, *next;
@@ -2828,6 +2849,22 @@ SpotEncounter *CNavArea::GetSpotEncounter(const CNavArea *from, const CNavArea *
 	return nullptr;
 }
 
+// Checks if a SpotEncounter is present in the list of encounters for the given CNavArea
+bool CNavArea::HasSpotEncounter(const SpotEncounter *encounter)
+{
+	SpotEncounter *e;
+
+	for (SpotEncounterList::iterator iter = m_spotEncounterList.begin(); iter != m_spotEncounterList.end(); iter++)
+	{
+		e = &(*iter);
+
+		if (e == encounter)
+			return true;
+	}
+
+	return false;
+}
+
 // Add spot encounter data when moving from area to area
 void CNavArea::AddSpotEncounters(const class CNavArea *from, NavDirType fromDir, const CNavArea *to, NavDirType toDir)
 {
@@ -3968,6 +4005,7 @@ void EditNavAreas(NavEditCmdType cmd)
 					case EDIT_DELETE:
 						EMIT_SOUND_DYN(ENT(pLocalPlayer->pev), CHAN_ITEM, "buttons/blip1.wav", 1, ATTN_NORM, 0, 100);
 						TheNavAreaList.remove(area);
+						TheCSBots()->OnDestroyNavDataNotify(NAV_NOTIFY_DESTROY_AREA, area);
 						delete area;
 						return;
 					case EDIT_ATTRIB_CROUCH:
