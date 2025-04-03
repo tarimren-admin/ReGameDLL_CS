@@ -1817,6 +1817,11 @@ void EXT_FUNC CHalfLifeMultiplay::__API_HOOK(RestartRound)()
 			if (!UTIL_IsValidPlayer(pPlayer))
 				continue;
 
+#ifdef REGAMEDLL_FIXES
+			if (!pPlayer->IsBot())
+				pPlayer->ForceClientDllUpdate();
+#endif
+
 			pPlayer->Reset();
 		}
 
@@ -3246,19 +3251,6 @@ void CHalfLifeMultiplay::CareerRestart()
 	}
 
 	m_bSkipSpawn = false;
-
-	for (int i = 1; i <= gpGlobals->maxClients; i++)
-	{
-		CBasePlayer *pPlayer = UTIL_PlayerByIndex(i);
-
-		if (!UTIL_IsValidPlayer(pPlayer))
-			continue;
-
-		if (!pPlayer->IsBot())
-		{
-			pPlayer->ForceClientDllUpdate();
-		}
-	}
 }
 
 BOOL CHalfLifeMultiplay::IsMultiplayer()
