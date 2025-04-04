@@ -941,7 +941,7 @@ void CCSBot::RemovePath(CNavArea *area)
 void CCSBot::RemoveHidingSpot(HidingSpot *spot)
 {
 	int i = 0;
-	while (i < m_pathLength)
+	while (i < m_checkedHidingSpotCount)
 	{
 		if (m_checkedHidingSpot[i].spot == spot)
 		{

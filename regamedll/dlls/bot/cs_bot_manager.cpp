@@ -1535,7 +1535,7 @@ void CCSBotManager::OnDestroyNavDataNotify(NavNotifyDestroyType navNotifyType, v
 // and triggers a game restart after the analysis is completed
 void CCSBotManager::AnalysisCompleted()
 {
-    // Ensure that all bots are no longer involved in map analysis and start their normal process
+	// Ensure that all bots are no longer involved in map analysis and start their normal process
 	for (int i = 1; i <= gpGlobals->maxClients; i++)
 	{
 		CBasePlayer *pPlayer = UTIL_PlayerByIndex(i);
@@ -1554,10 +1554,10 @@ void CCSBotManager::AnalysisCompleted()
 	m_isMapDataLoaded = false;
 	m_isAnalysisRequested = false;
 
-    // Try to reload the navigation map from the file
+	// Try to reload the navigation map from the file
 	if (LoadNavigationMap())
 	{
-        // Initiate a game restart in 3 seconds
+		// Initiate a game restart in 3 seconds
 		CVAR_SET_FLOAT("sv_restart", 3);
 	}
 }
