@@ -31,7 +31,7 @@ ReGameDLL_CS完全兼容Valve官方的CS1.6/CZero模组，只需下载二进制�
 | impulse 255                         | 获取所有武器.<br/><br/>注意：需开启 `sv_cheats 1`.|
 | impulse 200                         | 开启带加速的穿墙模式.<br/><br/>注意：需开启 `sv_cheats 1`. |
 
-## 配置参数（CVars）
+## 配置参数（CVars） - 具体详见dist\game.cfg
 <details>
 <summary>点击展开</summary>
 
@@ -145,7 +145,7 @@ ReGameDLL_CS完全兼容Valve官方的CS1.6/CZero模组，只需下载二进制�
 
 ## 构建说明
 ### 环境要求
-There are several software requirements for building ReGameDLL_CS:
+构建ReGameDLL_CS需要满足以下软件要求:
 
 #### Windows环境
 <pre>
@@ -171,8 +171,8 @@ LLVM (Clang) >= 6.0 (可选)
 * 使用构建脚本 `build.sh --compiler=[gcc] --jobs=[N] -D[option]=[ON or OFF]` (without square brackets)
 
 <pre>
--c=|--compiler=[icc|gcc|clang]  - Select preferred C/C++ compiler to build
--j=|--jobs=[N]                  - Specifies the number of jobs (commands) to run simultaneously (For faster building)
+-c=|--compiler=[icc|gcc|clang]  - 选择用于构建的C/C++编译器
+-j=|--jobs=[N]                  - 指定并行运行的任务（命令）数量（可加快构建速度）
 
 <sub>支持自定义选项 (-D)</sub>
 DEBUG                           - 启用调试模式
@@ -183,14 +183,14 @@ USE_STATIC_LIBSTDC              - 启用静态链接 libstdc++
 * LLVM (Clang) <pre>./build.sh --compiler=clang</pre>
 * GCC          <pre>./build.sh --compiler=gcc</pre>
 
-##### Checking build environment (Debian / Ubuntu)
+##### 检查构建环境（Debian/Ubuntu系统）
 
 <details>
-<summary>Click to expand</summary>
+<summary>点击展开</summary>
 
 <ul>
 <li>
-Installing required packages
+安装必备软件包
 <pre>
 sudo dpkg --add-architecture i386
 sudo apt-get update
@@ -201,7 +201,7 @@ sudo apt-get install -y libc6-dev libc6-dev-i386
 </li>
 
 <li>
-Select the preferred C/C++ Compiler installation
+选择C/C++编译器安装方案
 <pre>
 1) sudo apt-get install -y gcc g++
 2) sudo apt-get install -y clang
