@@ -35,8 +35,8 @@ ReGameDLL_CS完全兼容Valve官方的CS1.6/CZero模组，只需下载二进制�
 <details>
 <summary>点击展开</summary>
 
-| 参数                               | 默认值  | 最小值 | 最大值    |          参数释义                              |
-| :--------------------------------- | :-----: | :-: | :----------: | :--------------------------------------------- |
+| 参数                               |  默认值 | 最小值 | 最大值   |          参数释义                              |
+| :--------------------------------- | :-----: | :----: | :------: | :--------------------------------------------- |
 | mp_freeforall                      | 0       | 0   | 1            | The style of gameplay where there aren't any teams (FFA mode)<br/>`0` disabled <br/>`1` enabled |
 | mp_autoteambalance                 | 1       | 0   | 2            | Auto balancing of teams.<br/>`0` disabled <br/>`1` on after next round<br/>`2` on next round |
 | mp_buytime                         | 1.5     | 0.0 | -            | Designate the desired amount of buy time for each round. (in minutes)<br />`-1` means no time limit<br />`0` disable buy |
