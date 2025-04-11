@@ -31,11 +31,11 @@ ReGameDLL_CS完全兼容Valve官方的CS1.6/CZero模组，只需下载二进制�
 | impulse 255                         | 获取所有武器.<br/><br/>注意：需开启 `sv_cheats 1`.|
 | impulse 200                         | 开启带加速的穿墙模式.<br/><br/>注意：需开启 `sv_cheats 1`. |
 
-## Configuration (cvars)
+## 配置参数（CVars）
 <details>
-<summary>Click to expand</summary>
+<summary>点击展开</summary>
 
-| CVar                               | Default | Min | Max          | Description                                    |
+| 参数                               | 默认值  | 最小值 | 最大值    |          参数释义                              |
 | :--------------------------------- | :-----: | :-: | :----------: | :--------------------------------------------- |
 | mp_freeforall                      | 0       | 0   | 1            | The style of gameplay where there aren't any teams (FFA mode)<br/>`0` disabled <br/>`1` enabled |
 | mp_autoteambalance                 | 1       | 0   | 2            | Auto balancing of teams.<br/>`0` disabled <br/>`1` on after next round<br/>`2` on next round |
