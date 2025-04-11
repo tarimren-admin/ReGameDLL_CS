@@ -5661,13 +5661,14 @@ void CBasePlayer::SetScoreAttrib(CBasePlayer *dest)
 #endif
 
 #ifdef REGAMEDLL_FIXES
+	
 	if (
      #ifdef REGAMEDLL_ADD
      show_c4_defkit.value
 #else
 	 false
 #endif
-	  )
+	)
 	{
 	// TODO: Remove these fixes when they are implemented on the client side
 	if (state & (SCORE_STATUS_BOMB | SCORE_STATUS_DEFKIT) && GetForceCamera(dest) != CAMERA_MODE_SPEC_ANYONE)
