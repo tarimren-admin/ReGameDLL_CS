@@ -19,7 +19,7 @@ ReGameDLL_CS完全兼容Valve官方的CS1.6/CZero模组，只需下载二进制�
 
 ## 如何使用测试版
 <pre>ReGameDLL_CS包含官方Counter-Strike最新更改的测试版本.</pre>
-* 在HLDS命令行添加-beta参数.
+* 在HLDS命令行添加 `-beta` 参数.
 
 ## 命令
 | 命令                                | 命令释义                                        |
@@ -164,17 +164,17 @@ LLVM (Clang) >= 6.0 (可选)
 ### 构建方法
 
 #### Windows环境
-使用Visual Studio打开`msvc/ReGameDLL.sln` 选择`Release` 或 `Debug`配置
+使用Visual Studio打开 `msvc/ReGameDLL.sln` 选择 `Release` 或 `Debug` 配置
 
 #### Linux环境
 
-* 使用构建脚本 `build.sh --compiler=[gcc] --jobs=[N] -D[option]=[ON or OFF]` (without square brackets)
+* 使用构建脚本 `build.sh --compiler=[gcc] --jobs=[N] -D[option]=[ON or OFF]` (不带方括号)
 
 <pre>
 -c=|--compiler=[icc|gcc|clang]  - 选择用于构建的C/C++编译器
 -j=|--jobs=[N]                  - 指定并行运行的任务（命令）数量（可加快构建速度）
 
-<sub>支持自定义选项 (-D)</sub>
+<sub>定义参数 (-D)</sub>
 DEBUG                           - 启用调试模式
 USE_STATIC_LIBSTDC              - 启用静态链接 libstdc++
 </pre>
@@ -212,7 +212,7 @@ sudo apt-get install -y libc6-dev libc6-dev-i386
 </details>
 
 ### 致谢
-感谢[ReHLDS](https://github.com/dreamstalker/rehlds) ( ReGameDLL_CS基于ReHLDS开发 )
+感谢[ReHLDS](https://github.com/dreamstalker/rehlds)项目( ReGameDLL_CS基于ReHLDS开发 )
 
 ## 如何对项目提供支持
 只需在您的游戏服务器上安装并反馈遇到的问题.<br />
