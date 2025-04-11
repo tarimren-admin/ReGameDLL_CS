@@ -1,35 +1,35 @@
 # ReGameDLL_CS [![GitHub release (by tag)](https://img.shields.io/github/downloads/s1lentq/ReGameDLL_CS/latest/total)](https://github.com/s1lentq/ReGameDLL_CS/releases/latest) ![GitHub all releases](https://img.shields.io/github/downloads/s1lentq/ReGameDLL_CS/total) [![Percentage of issues still open](http://isitmaintained.com/badge/open/s1lentq/ReGameDLL_CS.svg)](http://isitmaintained.com/project/s1lentq/ReGameDLL_CS "Percentage of issues still open") [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) <img align="right" src="https://cloud.githubusercontent.com/assets/5860435/20008568/b3623150-a2d3-11e6-85f3-0d6571045fc9.png" alt="Counter-Strike 1.6 GameDLL" />
-Reverse-engineered gamedll (mp.dll / Counter-Strike)
+逆向工程开发的游戏动态库 (mp.dll / Counter-Strike)
 
-## What is this?
-Regamedll_CS is a result of reverse engineering of original library mod HLDS (build 6153beta) using DWARF debug info embedded into linux version of HLDS, cs.so
+## 项目简介
+Regamedll_CS是通过对HLDS（版本6153beta）原版库进行逆向工程的成果，利用了嵌入在Linux版HLDS（cs.so ）中的DWARF调试信息.
 
-## Goals of the project
-* Provide more stable (than official) version of Counter-Strike game with extended API for mods and plugins
+## 项目目标
+* 提供比官方版更稳定的Counter-Strike游戏版本，并为模组和插件扩展API接口
 
-## How can use it?
-ReGameDLL_CS is fully compatible with official mod CS 1.6 / CZero by Valve. All you have to do is to download binaries and replace original mp.dll/cs.so
+## 如何使用
+ReGameDLL_CS完全兼容Valve官方的CS1.6/CZero模组，只需下载二进制文件替换原版mp.dll/cs.so 即可
 
-## Downloads
-* [Release builds](https://github.com/s1lentq/ReGameDLL_CS/releases)
-* [Dev builds](https://github.com/s1lentq/ReGameDLL_CS/actions/workflows/build.yml)
+## 下载
+* [正式发布版](https://github.com/s1lentq/ReGameDLL_CS/releases)
+* [开发预览版](https://github.com/s1lentq/ReGameDLL_CS/actions/workflows/build.yml)
 
-<b>Warning!</b> ReGameDLL_CS is not binary compatible with original hlds since it's compiled with compilers other than ones used for original mod CS.
-This means that plugins that do binary code analysis (Orpheu for example) probably will not work with ReGameDLL_CS.
+<b>警告!</b> 由于使用不同编译器构建，ReGameDLL_CS与原版HLDS不兼容二进制.
+这意味着依赖二进制代码分析的插件（如Orpheu）可能无法正常工作.
 
-## How can use beta?
-<pre>ReGameDLL_CS also have beta version with latest changes from official version of Counter-Strike.</pre>
-* Enter `-beta` option at the command line HLDS.
+## 如何使用测试版
+<pre>ReGameDLL_CS包含官方Counter-Strike最新更改的测试版本.</pre>
+* 在HLDS命令行添加-beta参数.
 
-## Commands
-| Command                             | Description                                     |
+## 命令
+| 命令                                | 命令释义                                        |
 | :---------------------------------- | :---------------------------------------------- |
-| game version                        | Will show GameDLL build version, date & URL. |
-| endround                            | Args:<br/>`T` force round end with Terrorists win. <br/>`CT` force round end with Counter-Terrorists win. <br/> or terminate round draw when called without arguments. |
-| swapteams                           | Swap the teams and restart the game (1 sec delay to restart by default).<br/> Args: <br/>`0` - swap teams without restart. <br/> `>0.001` - time delay in seconds to restart the round after swap. |
-| give                                | Give weapon command.<br/> Args:<br/><weapon_name><br/>Usage:<br/>`give weapon_ak47`<br/>`give weapon_usp`<br/><br/>NOTE: `sv_cheats 1` required. |
-| impulse 255                         | Give all weapons.<br/><br/>NOTE: `sv_cheats 1` required. |
-| impulse 200                         | Noclip with air acceleration.<br/><br/>NOTE: `sv_cheats 1` required. |
+| game version                        | 显示GameDLL构建版本、日期和URL. |
+| endround                            | 参数:<br/>`T` 强制恐怖分子获胜. <br/>`CT` 强制反恐精英获胜<br/> 无参数则平局结束回合. |
+| swapteams                           | 交换队伍并重启对局（默认延迟1秒）.<br/> 参数: <br/>`0` - 不重启直接交换. <br/> `>0.001` - 重启延迟秒数.|
+| give                                | 获取武器命令.<br/> 参数:<br/><weapon_name><br/>示例:<br/>`give weapon_ak47`<br/>`give weapon_usp`<br/><br/>注意：需开启 `sv_cheats 1`. |
+| impulse 255                         | 获取所有武器.<br/><br/>注意：需开启 `sv_cheats 1`.|
+| impulse 200                         | 开启带加速的穿墙模式.<br/><br/>注意：需开启 `sv_cheats 1`. |
 
 ## Configuration (cvars)
 <details>
