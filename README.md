@@ -135,48 +135,48 @@ ReGameDLL_CS完全兼容Valve官方的CS1.6/CZero模组，只需下载二进制�
 | mp_show_c4_defkit                  | 0       | 0   | 1            | Enable ReGameDLL scoreboard bug fix(Dead players could see the bomb or defuse kit).<br/> `0` Can see C4 and KIT<br/>`1` Cannot see C4 and KIT|
 </details>
 
-## How to install zBot for CS 1.6?
-* Extract all the files from an [archive](regamedll/extra/zBot/bot_profiles.zip?raw=true)
-* Enable CVar `bot_enable 1` in `cstrike/game_init.cfg` (if this config file does not exist, create it)
+## zBot机器人安装指南
+* 解压压缩包的所有文件 [archive](regamedll/extra/zBot/bot_profiles.zip?raw=true)
+* 在`cstrike/game_init.cfg`中设置 `bot_enable 1`  (如无此文件请创建文件)
 
-## How to install CS:CZ hostage AI for CS 1.6?
-* Extract all the files from an [archive](regamedll/extra/HostageImprov/host_improv.zip?raw=true)
-* Enable CVar `hostage_ai_enable 1` in `cstrike/game_init.cfg` (if this config file does not exist, create it)
+## CS:CZ人质AI安装指南
+* 解压压缩包的所有文件 [archive](regamedll/extra/HostageImprov/host_improv.zip?raw=true)
+* 在`cstrike/game_init.cfg`中设置 `hostage_ai_enable 1` (如无此文件请创建文件)
 
-## Build instructions
-### Checking requirements
+## 构建说明
+### 环境要求
 There are several software requirements for building ReGameDLL_CS:
 
-#### Windows
+#### Windows环境
 <pre>
-Visual Studio 2015 (C++14 standard) and later
+Visual Studio 2015 (C++14标准) 或更高版本
 </pre>
 
-#### Linux
+#### Linux环境
 <pre>
 git >= 1.8.5
 cmake >= 3.10
-GCC >= 4.9.2 (Optional)
-ICC >= 15.0.1 20141023 (Optional)
-LLVM (Clang) >= 6.0 (Optional)
+GCC >= 4.9.2 (可选)
+ICC >= 15.0.1 20141023 (可选)
+LLVM (Clang) >= 6.0 (可选)
 </pre>
 
-### Building
+### 构建方法
 
-#### Windows
-Use `Visual Studio` to build, open `msvc/ReGameDLL.sln` and just select from the solution configurations list `Release` or `Debug`
+#### Windows环境
+使用Visual Studio打开`msvc/ReGameDLL.sln` 选择`Release` 或 `Debug`配置
 
-#### Linux
+#### Linux环境
 
-* Optional options using `build.sh --compiler=[gcc] --jobs=[N] -D[option]=[ON or OFF]` (without square brackets)
+* 使用构建脚本 `build.sh --compiler=[gcc] --jobs=[N] -D[option]=[ON or OFF]` (without square brackets)
 
 <pre>
 -c=|--compiler=[icc|gcc|clang]  - Select preferred C/C++ compiler to build
 -j=|--jobs=[N]                  - Specifies the number of jobs (commands) to run simultaneously (For faster building)
 
-<sub>Definitions (-D)</sub>
-DEBUG                           - Enables debugging mode
-USE_STATIC_LIBSTDC              - Enables static linking library libstdc++
+<sub>支持自定义选项 (-D)</sub>
+DEBUG                           - 启用调试模式
+USE_STATIC_LIBSTDC              - 启用静态链接 libstdc++
 </pre>
 
 * ICC          <pre>./build.sh --compiler=intel</pre>
@@ -211,9 +211,9 @@ Select the preferred C/C++ Compiler installation
 
 </details>
 
-### Credits
-Thanks to the project [ReHLDS](https://github.com/dreamstalker/rehlds) ( ReGameDLL_CS was created on the basis of ReHLDS )
+### 致谢
+感谢[ReHLDS](https://github.com/dreamstalker/rehlds) ( ReGameDLL_CS基于ReHLDS开发 )
 
-## How can I help the project?
-Just install it on your game server and report problems you faced.<br />
-Merge requests are also welcome :shipit:
+## 如何对项目提供支持
+只需在您的游戏服务器上安装并反馈遇到的问题.<br />
+也欢迎提交合并请求 :shipit:
