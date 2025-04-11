@@ -5672,10 +5672,10 @@ void CBasePlayer::SetScoreAttrib(CBasePlayer *dest)
 	{
 	// TODO: Remove these fixes when they are implemented on the client side
 	if (state & (SCORE_STATUS_BOMB | SCORE_STATUS_DEFKIT) && GetForceCamera(dest) != CAMERA_MODE_SPEC_ANYONE)
-	  {
+	 {
 		if (CSGameRules()->PlayerRelationship(this, dest) != GR_TEAMMATE)
 	    	state &= ~(SCORE_STATUS_BOMB | SCORE_STATUS_DEFKIT);
-	  }
+	 }
 	}
 #endif
 
