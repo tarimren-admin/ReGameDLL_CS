@@ -132,7 +132,7 @@ ReGameDLL_CS完全兼容Valve官方的CS1.6/CZero模组，只需下载二进制�
 | mp_randomspawn                     | 0       | 0   | 1            | Random player spawns<br/>`0` disabled <br/>`1` enabled<br/>`NOTE`: Navigation `maps/.nav` file required |
 | mp_playerid_showhealth             | 1       | 0   | 2            | Player ID display mode.<br/>`0` don't show health<br/>`1` show health for teammates only (default CS behaviour)<br/>`2` show health for all players |
 | mp_playerid_field                  | 3       | 0   | 3            | Player ID field display mode.<br/>`0` don't show additional information<br/>`1` show team name<br/>`2` show health percentage<br/>`3` show both team name and health percentage |
-| mp_show_c4_defkit                  | 0       | 0   | 1            | Enable ReGameDLL scoreboard bug fix(Dead players could see the bomb or defuse kit).<br/> `0` Can see C4 and KIT<br/>`1` Cannot see C4 and KIT|
+| mp_show_c4_defkit                  | 0       | 0   | 1            | Dead players could see the bomb or defuse kit<br/> `0` Can see C4 and KIT<br/>`1` Cannot see C4 and KIT|
 </details>
 
 ## zBot机器人安装指南
