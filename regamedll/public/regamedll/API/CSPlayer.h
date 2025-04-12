@@ -93,7 +93,6 @@ public:
 	virtual void SendItemStatus();
 	virtual void ReloadWeapons(CBasePlayerItem *pWeapon = nullptr, bool bForceReload = false, bool bForceRefill = false);
 	virtual void Observer_SetMode(int iMode);
-	virtual void Observer_FindNextPlayer(bool bReverse, const char *name = nullptr);
 	virtual bool SelectSpawnSpot(const char *pEntClassName, CBaseEntity* &pSpot);
 	virtual bool SwitchWeapon(CBasePlayerItem *pWeapon);
 	virtual void SwitchTeam();
