@@ -2786,9 +2786,9 @@ void EXT_FUNC InternalCommand(edict_t *pEntity, const char *pcmd, const char *pa
 
 				if (pPlayer->m_iMapVote)
 				{
-					if (--CSGameRules()->m_iMapVotes[pPlayer->m_iMapVote] < 0)
+					if (--CSGameRules()->m_iMapVotes[pPlayer->m_iMapVote - 1] < 0)
 					{
-						CSGameRules()->m_iMapVotes[pPlayer->m_iMapVote] = 0;
+						CSGameRules()->m_iMapVotes[pPlayer->m_iMapVote - 1] = 0;
 					}
 				}
 
